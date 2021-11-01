@@ -1,0 +1,614 @@
+Archive member included because of file (symbol)
+
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                              ./main.o (__mulsi3)
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                              ./SEG_Program.o (__udivmodqi4)
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              ./main.o (__udivmodsi4)
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./AMIT_Program.o (__do_copy_data)
+d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              ./ADC_Program.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+EXTI_INT2_CallBackFun
+                    0x2               ./EXTI_Program.o
+GLO_u8EEPROMValue   0x1               ./AMIT_Program.o
+Pin_Number          0x1               ./AMIT_Program.o
+EXTI_INT0_CallBackFun
+                    0x2               ./EXTI_Program.o
+EXTI_INT1_CallBackFun
+                    0x2               ./EXTI_Program.o
+State               0x1               ./ADC_Program.o
+Internal_EEPROM_CallbackFunction
+                    0x2               ./Internal_EEPROM_Program.o
+TIMER0_CTC_CallBackFun
+                    0x2               ./Timer_Program.o
+ADC_CallBackFun     0x2               ./ADC_Program.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+LOAD ./ADC_Program.o
+LOAD ./AMIT_Program.o
+LOAD ./DIO_Program.o
+LOAD ./EXTI_Program.o
+LOAD ./GIE_Program.o
+LOAD ./Internal_EEPROM_Program.o
+LOAD ./SEG_Program.o
+LOAD ./Timer_Program.o
+LOAD ./main.o
+LOAD d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xcf0
+ *(.vectors)
+ .vectors       0x00000000       0x54 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000054        0x0 linker stubs
+ *(.trampolines*)
+                0x00000054                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000054                __ctors_start = .
+ *(.ctors)
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
+ *(.dtors)
+                0x00000054                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000054        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000054                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000054        0xc d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000060       0x16 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000086        0x8 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x0000008e        0x4 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x0000008e                __vector_12
+                0x0000008e                __bad_interrupt
+                0x0000008e                __vector_6
+                0x0000008e                __vector_11
+                0x0000008e                __vector_13
+                0x0000008e                __vector_17
+                0x0000008e                __vector_19
+                0x0000008e                __vector_7
+                0x0000008e                __vector_5
+                0x0000008e                __vector_4
+                0x0000008e                __vector_9
+                0x0000008e                __vector_15
+                0x0000008e                __vector_8
+                0x0000008e                __vector_14
+                0x0000008e                __vector_20
+ .text          0x00000092        0x0 ./ADC_Program.o
+ .text          0x00000092        0x0 ./AMIT_Program.o
+ .text          0x00000092        0x0 ./DIO_Program.o
+ .text          0x00000092        0x0 ./EXTI_Program.o
+ .text          0x00000092        0x0 ./GIE_Program.o
+ .text          0x00000092        0x0 ./Internal_EEPROM_Program.o
+ .text          0x00000092        0x0 ./SEG_Program.o
+ .text          0x00000092        0x0 ./Timer_Program.o
+ .text          0x00000092        0x0 ./main.o
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000092        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000092                . = ALIGN (0x2)
+ *(.text.*)
+ .text.ADC_voidInit
+                0x00000092       0x10 ./ADC_Program.o
+                0x00000092                ADC_voidInit
+ .text.ADC_u16StartConversion
+                0x000000a2       0x1c ./ADC_Program.o
+                0x000000a2                ADC_u16StartConversion
+ .text.ADC_voidInit_Interrupt
+                0x000000be       0x12 ./ADC_Program.o
+                0x000000be                ADC_voidInit_Interrupt
+ .text.ADC_u16StartConversion_Interrupt
+                0x000000d0       0x12 ./ADC_Program.o
+                0x000000d0                ADC_u16StartConversion_Interrupt
+ .text.ADC_u16DigitalRead
+                0x000000e2        0x8 ./ADC_Program.o
+                0x000000e2                ADC_u16DigitalRead
+ .text.ADC_voidSetCallBack_Function
+                0x000000ea        0xa ./ADC_Program.o
+                0x000000ea                ADC_voidSetCallBack_Function
+ .text.__vector_16
+                0x000000f4       0x4e ./ADC_Program.o
+                0x000000f4                __vector_16
+ .text.AMIT_Project_voidON_OFF
+                0x00000142       0x1c ./AMIT_Program.o
+                0x00000142                AMIT_Project_voidON_OFF
+ .text.AMIT_Project_voidUP
+                0x0000015e       0x32 ./AMIT_Program.o
+                0x0000015e                AMIT_Project_voidUP
+ .text.AMIT_Project_voidDOWN
+                0x00000190       0x32 ./AMIT_Program.o
+                0x00000190                AMIT_Project_voidDOWN
+ .text.AMIT_Project_Timers
+                0x000001c2       0x16 ./AMIT_Program.o
+                0x000001c2                AMIT_Project_Timers
+ .text.AMIT_Projectu8_TempreatureCompare
+                0x000001d8       0x26 ./AMIT_Program.o
+                0x000001d8                AMIT_Projectu8_TempreatureCompare
+ .text.AMIT_Projectvoid_Cooling_HeatingLeds
+                0x000001fe       0x20 ./AMIT_Program.o
+                0x000001fe                AMIT_Projectvoid_Cooling_HeatingLeds
+ .text.DIO_u8SetPinDirection
+                0x0000021e      0x100 ./DIO_Program.o
+                0x0000021e                DIO_u8SetPinDirection
+ .text.DIO_u8SetPinValue
+                0x0000031e      0x106 ./DIO_Program.o
+                0x0000031e                DIO_u8SetPinValue
+ .text.DIO_u8SetPortValue
+                0x00000424       0x22 ./DIO_Program.o
+                0x00000424                DIO_u8SetPortValue
+ .text.DIO_u8SetPortDirection
+                0x00000446       0x22 ./DIO_Program.o
+                0x00000446                DIO_u8SetPortDirection
+ .text.DIO_u8Set4MSB_BitsValue
+                0x00000468       0x52 ./DIO_Program.o
+                0x00000468                DIO_u8Set4MSB_BitsValue
+ .text.DIO_u8TogglePinValue
+                0x000004ba       0x7a ./DIO_Program.o
+                0x000004ba                DIO_u8TogglePinValue
+ .text.EXTI_voidINT0_Init
+                0x00000534       0x14 ./EXTI_Program.o
+                0x00000534                EXTI_voidINT0_Init
+ .text.EXTI_voidINT1_Init
+                0x00000548       0x14 ./EXTI_Program.o
+                0x00000548                EXTI_voidINT1_Init
+ .text.EXTI_voidINT2_Init
+                0x0000055c        0xe ./EXTI_Program.o
+                0x0000055c                EXTI_voidINT2_Init
+ .text.EXTI_INT0_voidSetCallBackFunc
+                0x0000056a        0xa ./EXTI_Program.o
+                0x0000056a                EXTI_INT0_voidSetCallBackFunc
+ .text.EXTI_INT1_voidSetCallBackFunc
+                0x00000574        0xa ./EXTI_Program.o
+                0x00000574                EXTI_INT1_voidSetCallBackFunc
+ .text.EXTI_INT2_voidSetCallBackFunc
+                0x0000057e        0xa ./EXTI_Program.o
+                0x0000057e                EXTI_INT2_voidSetCallBackFunc
+ .text.__vector_1
+                0x00000588       0x4e ./EXTI_Program.o
+                0x00000588                __vector_1
+ .text.__vector_2
+                0x000005d6       0x4e ./EXTI_Program.o
+                0x000005d6                __vector_2
+ .text.__vector_3
+                0x00000624       0x4e ./EXTI_Program.o
+                0x00000624                __vector_3
+ .text.GIE_voidEnable
+                0x00000672        0x8 ./GIE_Program.o
+                0x00000672                GIE_voidEnable
+ .text.GIE_voidDisable
+                0x0000067a        0x8 ./GIE_Program.o
+                0x0000067a                GIE_voidDisable
+ .text.InternalEEPROM_voidWrite_Data
+                0x00000682       0x16 ./Internal_EEPROM_Program.o
+                0x00000682                InternalEEPROM_voidWrite_Data
+ .text.InternalEEPROM_u8ReadData
+                0x00000698        0xe ./Internal_EEPROM_Program.o
+                0x00000698                InternalEEPROM_u8ReadData
+ .text.Internal_EEPROM_SET_CallbackFunction
+                0x000006a6        0xa ./Internal_EEPROM_Program.o
+                0x000006a6                Internal_EEPROM_SET_CallbackFunction
+ .text.__vector_18
+                0x000006b0       0x4e ./Internal_EEPROM_Program.o
+                0x000006b0                __vector_18
+ .text.SEG_voidDisableSeg
+                0x000006fe       0x16 ./SEG_Program.o
+                0x000006fe                SEG_voidDisableSeg
+ .text.SEG_voidSegDisplay
+                0x00000714      0x16a ./SEG_Program.o
+                0x00000714                SEG_voidSegDisplay
+ .text.SEG_voidSEGViewer
+                0x0000087e       0x38 ./SEG_Program.o
+                0x0000087e                SEG_voidSEGViewer
+ .text.SEG_voidSEGBlinker
+                0x000008b6       0x1a ./SEG_Program.o
+                0x000008b6                SEG_voidSEGBlinker
+ .text.SEG_voidInit
+                0x000008d0       0x3e ./SEG_Program.o
+                0x000008d0                SEG_voidInit
+ .text.Wu8DT_voidEnable
+                0x0000090e        0x8 ./Timer_Program.o
+                0x0000090e                Wu8DT_voidEnable
+ .text.Wu8DT_voidSleep
+                0x00000916        0xe ./Timer_Program.o
+                0x00000916                Wu8DT_voidSleep
+ .text.Wu8DT_voidDisable
+                0x00000924        0x8 ./Timer_Program.o
+                0x00000924                Wu8DT_voidDisable
+ .text.TIMER0_voidInit
+                0x0000092c       0x2c ./Timer_Program.o
+                0x0000092c                TIMER0_voidInit
+ .text.TIMER0_voidSetPreloadValue
+                0x00000958        0x4 ./Timer_Program.o
+                0x00000958                TIMER0_voidSetPreloadValue
+ .text.TIMER0_voidSetCTCValue
+                0x0000095c        0x4 ./Timer_Program.o
+                0x0000095c                TIMER0_voidSetCTCValue
+ .text.Timer0_voidSetCallBack_Function
+                0x00000960        0xa ./Timer_Program.o
+                0x00000960                Timer0_voidSetCallBack_Function
+ .text.__vector_10
+                0x0000096a       0x4e ./Timer_Program.o
+                0x0000096a                __vector_10
+ .text.TIMER1_voidInit
+                0x000009b8       0x20 ./Timer_Program.o
+                0x000009b8                TIMER1_voidInit
+ .text.TIMER2_voidInit
+                0x000009d8       0x26 ./Timer_Program.o
+                0x000009d8                TIMER2_voidInit
+ .text.TIMER2_voidSetPreloadValue
+                0x000009fe        0x4 ./Timer_Program.o
+                0x000009fe                TIMER2_voidSetPreloadValue
+ .text.TIMER2_voidSetCTCValue
+                0x00000a02        0x4 ./Timer_Program.o
+                0x00000a02                TIMER2_voidSetCTCValue
+ .text.main     0x00000a06      0x24c ./main.o
+                0x00000a06                main
+ .text.libgcc   0x00000c52       0x3e d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00000c52                __mulsi3
+ .text.libgcc   0x00000c90       0x18 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x00000c90                __udivmodqi4
+ .text.libgcc   0x00000ca8       0x44 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000ca8                __udivmodsi4
+ .text.libgcc   0x00000cec        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000cec        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000cec        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000cec                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000cec        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000cec                exit
+                0x00000cec                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000cec        0x4 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000cf0                _etext = .
+
+.data           0x00800060        0x2 load address 0x00000cf0
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060        0x0 ./ADC_Program.o
+ .data          0x00800060        0x0 ./AMIT_Program.o
+ .data          0x00800060        0x0 ./DIO_Program.o
+ .data          0x00800060        0x0 ./EXTI_Program.o
+ .data          0x00800060        0x0 ./GIE_Program.o
+ .data          0x00800060        0x0 ./Internal_EEPROM_Program.o
+ .data          0x00800060        0x0 ./SEG_Program.o
+ .data          0x00800060        0x0 ./Timer_Program.o
+ .data          0x00800060        0x0 ./main.o
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ .data.ModeFlag
+                0x00800060        0x1 ./AMIT_Program.o
+                0x00800060                ModeFlag
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800062                . = ALIGN (0x2)
+ *fill*         0x00800061        0x1 00
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
+
+.bss            0x00800062       0x14
+                0x00800062                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800062        0x0 ./ADC_Program.o
+ .bss           0x00800062        0x0 ./AMIT_Program.o
+ .bss           0x00800062        0x0 ./DIO_Program.o
+ .bss           0x00800062        0x0 ./EXTI_Program.o
+ .bss           0x00800062        0x0 ./GIE_Program.o
+ .bss           0x00800062        0x0 ./Internal_EEPROM_Program.o
+ .bss           0x00800062        0x0 ./SEG_Program.o
+ .bss           0x00800062        0x0 ./Timer_Program.o
+ .bss           0x00800062        0x0 ./main.o
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800062        0x0 d:/emb prog/sdk_win_64/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ .bss.Counter5000
+                0x00800062        0x2 ./AMIT_Program.o
+                0x00800062                Counter5000
+ .bss.Counter10
+                0x00800064        0x1 ./AMIT_Program.o
+                0x00800064                Counter10
+ .bss.Counter100
+                0x00800065        0x1 ./AMIT_Program.o
+                0x00800065                Counter100
+ .bss.Button_State_On_Off
+                0x00800066        0x1 ./AMIT_Program.o
+                0x00800066                Button_State_On_Off
+ *(COMMON)
+ COMMON         0x00800067        0x3 ./ADC_Program.o
+                0x00800067                State
+                0x00800068                ADC_CallBackFun
+ COMMON         0x0080006a        0x2 ./AMIT_Program.o
+                0x0080006a                GLO_u8EEPROMValue
+                0x0080006b                Pin_Number
+ COMMON         0x0080006c        0x6 ./EXTI_Program.o
+                0x0080006c                EXTI_INT2_CallBackFun
+                0x0080006e                EXTI_INT0_CallBackFun
+                0x00800070                EXTI_INT1_CallBackFun
+ COMMON         0x00800072        0x2 ./Internal_EEPROM_Program.o
+                0x00800072                Internal_EEPROM_CallbackFunction
+ COMMON         0x00800074        0x2 ./Timer_Program.o
+                0x00800074                TIMER0_CTC_CallBackFun
+                0x00800076                PROVIDE (__bss_end, .)
+                0x00000cf0                __data_load_start = LOADADDR (.data)
+                0x00000cf2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800076        0x0
+                0x00800076                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800076                PROVIDE (__noinit_end, .)
+                0x00800076                _end = .
+                0x00800076                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000     0x237c
+ *(.stab)
+ .stab          0x00000000      0x420 ./ADC_Program.o
+ .stab          0x00000420      0x564 ./AMIT_Program.o
+                                0x60c (size before relaxing)
+ .stab          0x00000984      0x5b8 ./DIO_Program.o
+                                0x678 (size before relaxing)
+ .stab          0x00000f3c      0x324 ./EXTI_Program.o
+                                0x3cc (size before relaxing)
+ .stab          0x00001260      0x150 ./GIE_Program.o
+                                0x1f8 (size before relaxing)
+ .stab          0x000013b0      0x270 ./Internal_EEPROM_Program.o
+                                0x4a4 (size before relaxing)
+ .stab          0x00001620      0x4a4 ./SEG_Program.o
+                                0x564 (size before relaxing)
+ .stab          0x00001ac4      0x45c ./Timer_Program.o
+                                0x51c (size before relaxing)
+ .stab          0x00001f20      0x45c ./main.o
+                                0x6a8 (size before relaxing)
+
+.stabstr        0x00000000     0x12b7
+ *(.stabstr)
+ .stabstr       0x00000000     0x12b7 ./ADC_Program.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(AMIT_FinalProject.elf elf32-avr)
+LOAD linker stubs
