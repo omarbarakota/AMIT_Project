@@ -257,7 +257,7 @@ void __vector_16(void)
 00000142 <AMIT_Project_voidON_OFF>:
 
 u8 GLO_u8EEPROMValue;
-
+//this function controls the onn and off states
 void AMIT_Project_voidON_OFF(void)
 	{
 	 if(Button_State_On_Off==OFF_STATE)
@@ -271,7 +271,7 @@ void AMIT_Project_voidON_OFF(void)
  14a:	81 30       	cpi	r24, 0x01	; 1
  14c:	29 f0       	breq	.+10     	; 0x158 <AMIT_Project_voidON_OFF+0x16>
  14e:	08 95       	ret
-
+//this function controls the onn and off states
 void AMIT_Project_voidON_OFF(void)
 	{
 	 if(Button_State_On_Off==OFF_STATE)
@@ -288,26 +288,27 @@ void AMIT_Project_voidON_OFF(void)
  15c:	08 95       	ret
 
 0000015e <AMIT_Project_voidUP>:
-		 /* NOTHING */
-	 }
 }
+//this functions is used to increment the set temperature
 void AMIT_Project_voidUP(void)
 {
-	if (ModeFlag == DEFAULT_MODE)
+	//enters the SET_TEMPERATURE_MODE
+	if(ModeFlag==DEFAULT_MODE)
  15e:	80 91 60 00 	lds	r24, 0x0060
  162:	82 30       	cpi	r24, 0x02	; 2
  164:	71 f0       	breq	.+28     	; 0x182 <AMIT_Project_voidUP+0x24>
 	{
-		ModeFlag = SET_TEMPERATURE_MODE;
+		 ModeFlag=SET_TEMPERATURE_MODE;
 	}
-	else if (ModeFlag == SET_TEMPERATURE_MODE && GLO_u8EEPROMValue < 75) //Min TEMP
+	else if(ModeFlag==SET_TEMPERATURE_MODE   &&   GLO_u8EEPROMValue<75)//Min TEMP
  166:	88 23       	and	r24, r24
  168:	39 f4       	brne	.+14     	; 0x178 <AMIT_Project_voidUP+0x1a>
  16a:	80 91 6a 00 	lds	r24, 0x006A
  16e:	8b 34       	cpi	r24, 0x4B	; 75
  170:	18 f4       	brcc	.+6      	; 0x178 <AMIT_Project_voidUP+0x1a>
 	{
-		GLO_u8EEPROMValue += 5;
+		//increment the set temperature
+		GLO_u8EEPROMValue+=5;
  172:	8b 5f       	subi	r24, 0xFB	; 251
  174:	80 93 6a 00 	sts	0x006A, r24
 	}
@@ -315,24 +316,24 @@ void AMIT_Project_voidUP(void)
 	{
 		/* NOTHING */
 	}
-	Counter5000 = 0;
+	Counter5000=0;
  178:	10 92 63 00 	sts	0x0063, r1
  17c:	10 92 62 00 	sts	0x0062, r1
 }
  180:	08 95       	ret
-}
 void AMIT_Project_voidUP(void)
 {
-	if (ModeFlag == DEFAULT_MODE)
+	//enters the SET_TEMPERATURE_MODE
+	if(ModeFlag==DEFAULT_MODE)
 	{
-		ModeFlag = SET_TEMPERATURE_MODE;
+		 ModeFlag=SET_TEMPERATURE_MODE;
  182:	10 92 60 00 	sts	0x0060, r1
 	}
 	else
 	{
 		/* NOTHING */
 	}
-	Counter5000 = 0;
+	Counter5000=0;
  186:	10 92 63 00 	sts	0x0063, r1
  18a:	10 92 62 00 	sts	0x0062, r1
 }
@@ -346,7 +347,8 @@ void AMIT_Project_voidDOWN(void)
  194:	82 30       	cpi	r24, 0x02	; 2
  196:	71 f0       	breq	.+28     	; 0x1b4 <AMIT_Project_voidDOWN+0x24>
 	{
-		 ModeFlag=SET_TEMPERATURE_MODE;
+		//enters the SET_TEMPERATURE_MODE
+		ModeFlag=SET_TEMPERATURE_MODE;
 	}
 	else if(ModeFlag==SET_TEMPERATURE_MODE   &&   GLO_u8EEPROMValue>35)//Min TEMP
  198:	88 23       	and	r24, r24
@@ -355,6 +357,7 @@ void AMIT_Project_voidDOWN(void)
  1a0:	84 32       	cpi	r24, 0x24	; 36
  1a2:	18 f0       	brcs	.+6      	; 0x1aa <AMIT_Project_voidDOWN+0x1a>
 	{
+		//decrement the set temperature
 		GLO_u8EEPROMValue-=5;
  1a4:	85 50       	subi	r24, 0x05	; 5
  1a6:	80 93 6a 00 	sts	0x006A, r24
@@ -368,12 +371,12 @@ void AMIT_Project_voidDOWN(void)
  1ae:	10 92 62 00 	sts	0x0062, r1
 }
  1b2:	08 95       	ret
-}
 void AMIT_Project_voidDOWN(void)
 {
 	if(ModeFlag==DEFAULT_MODE)
 	{
-		 ModeFlag=SET_TEMPERATURE_MODE;
+		//enters the SET_TEMPERATURE_MODE
+		ModeFlag=SET_TEMPERATURE_MODE;
  1b4:	10 92 60 00 	sts	0x0060, r1
 	}
 	else
@@ -389,6 +392,7 @@ void AMIT_Project_voidDOWN(void)
 000001c2 <AMIT_Project_Timers>:
 void AMIT_Project_Timers(void)
 {
+	//the timers starts counting
 	Counter10++;
  1c2:	80 91 64 00 	lds	r24, 0x0064
  1c6:	8f 5f       	subi	r24, 0xFF	; 255
@@ -401,11 +405,11 @@ void AMIT_Project_Timers(void)
  1d6:	08 95       	ret
 
 000001d8 <AMIT_Projectu8_TempreatureCompare>:
-	}
 }
 u8 AMIT_Projectu8_TempreatureCompare(u8 Copy_u8SensorTempreature,u8 Copy_u8SetTempreature)
 {
-	u8 flag;//bos hna tany
+	u8 flag;
+	// if the water is hotter than the needed temperature
 	if(Copy_u8SensorTempreature>=(Copy_u8SetTempreature+5))
  1d8:	70 e0       	ldi	r23, 0x00	; 0
  1da:	28 2f       	mov	r18, r24
@@ -418,6 +422,7 @@ u8 AMIT_Projectu8_TempreatureCompare(u8 Copy_u8SensorTempreature,u8 Copy_u8SetTe
 	{
 		flag=COOLING;//Cooling
 	}
+	// if the water is colder than the needed temperature
 	else if (Copy_u8SensorTempreature<=(Copy_u8SetTempreature-5))
  1e8:	64 50       	subi	r22, 0x04	; 4
  1ea:	70 40       	sbci	r23, 0x00	; 0
@@ -434,42 +439,45 @@ u8 AMIT_Projectu8_TempreatureCompare(u8 Copy_u8SensorTempreature,u8 Copy_u8SetTe
 	return flag;
 }
  1f8:	08 95       	ret
-	}
 }
 u8 AMIT_Projectu8_TempreatureCompare(u8 Copy_u8SensorTempreature,u8 Copy_u8SetTempreature)
 {
-	u8 flag;//bos hna tany
+	u8 flag;
+	// if the water is hotter than the needed temperature
 	if(Copy_u8SensorTempreature>=(Copy_u8SetTempreature+5))
  1fa:	81 e0       	ldi	r24, 0x01	; 1
  1fc:	08 95       	ret
 
 000001fe <AMIT_Projectvoid_Cooling_HeatingLeds>:
-	Counter10++;
 	Counter100++;
 }
 void AMIT_Projectvoid_Cooling_HeatingLeds(u8 Copy_u8Flag)
 {
+	//if we need to cool the water
 	if (Copy_u8Flag == COOLING) //Cooling
  1fe:	81 30       	cpi	r24, 0x01	; 1
  200:	41 f0       	breq	.+16     	; 0x212 <AMIT_Projectvoid_Cooling_HeatingLeds+0x14>
 	{
+		//Set the LED
 		DIO_u8SetPinValue(DIO_PIN7, DIO_PORTC, PIN_HIGH);
 	}
+	//if we need to heat the water
 	else if (Copy_u8Flag == HEATING) //Heating
  202:	82 30       	cpi	r24, 0x02	; 2
  204:	09 f0       	breq	.+2      	; 0x208 <AMIT_Projectvoid_Cooling_HeatingLeds+0xa>
  206:	08 95       	ret
 	{
+		//toggle the LED
 		DIO_u8TogglePinValue(DIO_PIN7, DIO_PORTC);
  208:	87 e0       	ldi	r24, 0x07	; 7
  20a:	62 e0       	ldi	r22, 0x02	; 2
  20c:	0e 94 5d 02 	call	0x4ba	; 0x4ba <DIO_u8TogglePinValue>
  210:	08 95       	ret
-}
-void AMIT_Projectvoid_Cooling_HeatingLeds(u8 Copy_u8Flag)
 {
+	//if we need to cool the water
 	if (Copy_u8Flag == COOLING) //Cooling
 	{
+		//Set the LED
 		DIO_u8SetPinValue(DIO_PIN7, DIO_PORTC, PIN_HIGH);
  212:	87 e0       	ldi	r24, 0x07	; 7
  214:	62 e0       	ldi	r22, 0x02	; 2
@@ -2286,8 +2294,8 @@ int main (void)
  a16:	1f 93       	push	r17
  a18:	cf 93       	push	r28
  a1a:	df 93       	push	r29
-	u32 LOC_u32SensorSumValue=0;
 	u16 LOC_u16DigitalData=0, LOC_u16AnalogData=0,LOC_16Temperature=0;
+	//Time of 1 second
 	u16 Counter1000=0;
 	u8 SEGFlag=SEG_ON,LEDflag=0;;
 	//Cooling Heating LED
@@ -2296,26 +2304,26 @@ int main (void)
  a1e:	62 e0       	ldi	r22, 0x02	; 2
  a20:	41 e0       	ldi	r20, 0x01	; 1
  a22:	0e 94 0f 01 	call	0x21e	; 0x21e <DIO_u8SetPinDirection>
-	//EXT INT0 BUTTON2 ON/OFF BUTTON
+	//EXT INT0 is attached to BUTTON2 "ON/OFF"
 	DIO_u8SetPinDirection(DIO_PIN2,DIO_PORTD,PIN_INPUT);
  a26:	82 e0       	ldi	r24, 0x02	; 2
  a28:	63 e0       	ldi	r22, 0x03	; 3
  a2a:	40 e0       	ldi	r20, 0x00	; 0
  a2c:	0e 94 0f 01 	call	0x21e	; 0x21e <DIO_u8SetPinDirection>
-	//EXT INT1 BUTTON1 UP
+	//EXT INT1 is attached to BUTTON1 "UP"
 	DIO_u8SetPinDirection(DIO_PIN6,DIO_PORTD,PIN_INPUT);
  a30:	86 e0       	ldi	r24, 0x06	; 6
  a32:	63 e0       	ldi	r22, 0x03	; 3
  a34:	40 e0       	ldi	r20, 0x00	; 0
  a36:	0e 94 0f 01 	call	0x21e	; 0x21e <DIO_u8SetPinDirection>
-	//EXT INT2 BUTTON0 DOWN
+	//EXT INT2 is attached to BUTTON0 "DOWN"
 	DIO_u8SetPinDirection(DIO_PIN0,DIO_PORTB,PIN_INPUT);
  a3a:	80 e0       	ldi	r24, 0x00	; 0
  a3c:	61 e0       	ldi	r22, 0x01	; 1
  a3e:	40 e0       	ldi	r20, 0x00	; 0
  a40:	0e 94 0f 01 	call	0x21e	; 0x21e <DIO_u8SetPinDirection>
-
-	InternalEEPROM_voidWrite_Data(20,60);
+	// write the initial set temperature
+	InternalEEPROM_voidWrite_Data(SET_TEMPERATURE_LOCATION,INITIAL_SET_TEMPERATURE);
  a44:	84 e1       	ldi	r24, 0x14	; 20
  a46:	90 e0       	ldi	r25, 0x00	; 0
  a48:	6c e3       	ldi	r22, 0x3C	; 60
@@ -2331,46 +2339,52 @@ _delay_loop_2(uint16_t __count)
  a52:	01 97       	sbiw	r24, 0x01	; 1
  a54:	f1 f7       	brne	.-4      	; 0xa52 <main+0x4c>
 	_delay_ms(10);
-	GLO_u8EEPROMValue=InternalEEPROM_u8ReadData(20);
+	// read the temperature in the EEPROM
+	GLO_u8EEPROMValue=InternalEEPROM_u8ReadData(SET_TEMPERATURE_LOCATION);
  a56:	84 e1       	ldi	r24, 0x14	; 20
  a58:	90 e0       	ldi	r25, 0x00	; 0
  a5a:	0e 94 4c 03 	call	0x698	; 0x698 <InternalEEPROM_u8ReadData>
  a5e:	80 93 6a 00 	sts	0x006A, r24
-
+	//initilaize the ADC and 7 Segments
 	SEG_voidInit();
  a62:	0e 94 68 04 	call	0x8d0	; 0x8d0 <SEG_voidInit>
-	TIMER0_voidInit();
- a66:	0e 94 96 04 	call	0x92c	; 0x92c <TIMER0_voidInit>
 	ADC_voidInit();
- a6a:	0e 94 49 00 	call	0x92	; 0x92 <ADC_voidInit>
-
+ a66:	0e 94 49 00 	call	0x92	; 0x92 <ADC_voidInit>
+	/*external interrupts functions
+	 * EXTI_INT0 controls ON/OFF modes
+	 * EXTI_INT1 incerement the set temperature
+	 * EXTI_INT2 decrease the set temperature
+	 */
 	EXTI_INT0_voidSetCallBackFunc(&AMIT_Project_voidON_OFF);
- a6e:	81 ea       	ldi	r24, 0xA1	; 161
- a70:	90 e0       	ldi	r25, 0x00	; 0
- a72:	0e 94 b5 02 	call	0x56a	; 0x56a <EXTI_INT0_voidSetCallBackFunc>
+ a6a:	81 ea       	ldi	r24, 0xA1	; 161
+ a6c:	90 e0       	ldi	r25, 0x00	; 0
+ a6e:	0e 94 b5 02 	call	0x56a	; 0x56a <EXTI_INT0_voidSetCallBackFunc>
 	EXTI_INT1_voidSetCallBackFunc(&AMIT_Project_voidUP);
- a76:	8f ea       	ldi	r24, 0xAF	; 175
- a78:	90 e0       	ldi	r25, 0x00	; 0
- a7a:	0e 94 ba 02 	call	0x574	; 0x574 <EXTI_INT1_voidSetCallBackFunc>
+ a72:	8f ea       	ldi	r24, 0xAF	; 175
+ a74:	90 e0       	ldi	r25, 0x00	; 0
+ a76:	0e 94 ba 02 	call	0x574	; 0x574 <EXTI_INT1_voidSetCallBackFunc>
 	EXTI_INT2_voidSetCallBackFunc(&AMIT_Project_voidDOWN);
- a7e:	88 ec       	ldi	r24, 0xC8	; 200
- a80:	90 e0       	ldi	r25, 0x00	; 0
- a82:	0e 94 bf 02 	call	0x57e	; 0x57e <EXTI_INT2_voidSetCallBackFunc>
+ a7a:	88 ec       	ldi	r24, 0xC8	; 200
+ a7c:	90 e0       	ldi	r25, 0x00	; 0
+ a7e:	0e 94 bf 02 	call	0x57e	; 0x57e <EXTI_INT2_voidSetCallBackFunc>
 
 	TIMER0_voidSetCTCValue(TIMER0_CTC);
- a86:	8a ef       	ldi	r24, 0xFA	; 250
- a88:	0e 94 ae 04 	call	0x95c	; 0x95c <TIMER0_voidSetCTCValue>
+ a82:	8a ef       	ldi	r24, 0xFA	; 250
+ a84:	0e 94 ae 04 	call	0x95c	; 0x95c <TIMER0_voidSetCTCValue>
 	Timer0_voidSetCallBack_Function(&AMIT_Project_Timers);
- a8c:	81 ee       	ldi	r24, 0xE1	; 225
- a8e:	90 e0       	ldi	r25, 0x00	; 0
- a90:	0e 94 b0 04 	call	0x960	; 0x960 <Timer0_voidSetCallBack_Function>
-
+ a88:	81 ee       	ldi	r24, 0xE1	; 225
+ a8a:	90 e0       	ldi	r25, 0x00	; 0
+ a8c:	0e 94 b0 04 	call	0x960	; 0x960 <Timer0_voidSetCallBack_Function>
+	TIMER0_voidInit();
+ a90:	0e 94 96 04 	call	0x92c	; 0x92c <TIMER0_voidInit>
+	//interrupts initilazation for external interrupts
 	EXTI_voidINT0_Init();
  a94:	0e 94 9a 02 	call	0x534	; 0x534 <EXTI_voidINT0_Init>
 	EXTI_voidINT1_Init();
  a98:	0e 94 a4 02 	call	0x548	; 0x548 <EXTI_voidINT1_Init>
 	EXTI_voidINT2_Init();
  a9c:	0e 94 ae 02 	call	0x55c	; 0x55c <EXTI_voidINT2_Init>
+	//enable the global interrupt
 	GIE_voidEnable();
  aa0:	0e 94 39 03 	call	0x672	; 0x672 <GIE_voidEnable>
  aa4:	cc 24       	eor	r12, r12
@@ -2382,11 +2396,11 @@ _delay_loop_2(uint16_t __count)
  ab0:	d0 e0       	ldi	r29, 0x00	; 0
  ab2:	00 e0       	ldi	r16, 0x00	; 0
  ab4:	80 91 66 00 	lds	r24, 0x0066
-					/*Nothing*/
-				}
-				if (Counter5000 == 5000)// 5 SECS
+				if (Counter5000 == 5000)// in 5 seconds time
 				{
+					//write the user's set temperature on the EEPROM
 					InternalEEPROM_voidWrite_Data(20,GLO_u8EEPROMValue);
+					//Enters the SENSING_TEMPERATURE_MODE
 					ModeFlag=SENSING_TEMPERATURE_MODE;
  ab8:	99 24       	eor	r9, r9
  aba:	93 94       	inc	r9
@@ -2397,7 +2411,7 @@ _delay_loop_2(uint16_t __count)
 		{
 			ModeFlag=DEFAULT_MODE;
  abc:	12 e0       	ldi	r17, 0x02	; 2
-	EXTI_voidINT2_Init();
+	//enable the global interrupt
 	GIE_voidEnable();
 
 	while(1)
@@ -2412,6 +2426,7 @@ _delay_loop_2(uint16_t __count)
 		{
 			ModeFlag=DEFAULT_MODE;
  ac2:	10 93 60 00 	sts	0x0060, r17
+			//DISABLE ALL Displays
 			SEG_voidDisableSeg();
  ac6:	0e 94 7f 03 	call	0x6fe	; 0x6fe <SEG_voidDisableSeg>
 			DIO_u8SetPinValue(DIO_PIN7,DIO_PORTC,PIN_LOW);
@@ -2419,11 +2434,13 @@ _delay_loop_2(uint16_t __count)
  acc:	62 e0       	ldi	r22, 0x02	; 2
  ace:	40 e0       	ldi	r20, 0x00	; 0
  ad0:	0e 94 8f 01 	call	0x31e	; 0x31e <DIO_u8SetPinValue>
-			GLO_u8EEPROMValue=InternalEEPROM_u8ReadData(20);
+			//Read the last SET_TEMPERATURE
+			GLO_u8EEPROMValue=InternalEEPROM_u8ReadData(SET_TEMPERATURE_LOCATION);
  ad4:	84 e1       	ldi	r24, 0x14	; 20
  ad6:	90 e0       	ldi	r25, 0x00	; 0
  ad8:	0e 94 4c 03 	call	0x698	; 0x698 <InternalEEPROM_u8ReadData>
  adc:	80 93 6a 00 	sts	0x006A, r24
+			//ALL TIMERS=0
 			Counter10=0;
  ae0:	10 92 64 00 	sts	0x0064, r1
 			Counter100=0;
@@ -2435,7 +2452,7 @@ _delay_loop_2(uint16_t __count)
  af0:	c0 e0       	ldi	r28, 0x00	; 0
  af2:	d0 e0       	ldi	r29, 0x00	; 0
  af4:	80 91 66 00 	lds	r24, 0x0066
-	EXTI_voidINT2_Init();
+	//enable the global interrupt
 	GIE_voidEnable();
 
 	while(1)
@@ -2464,7 +2481,7 @@ _delay_loop_2(uint16_t __count)
 			else if(ModeFlag==DEFAULT_MODE)
  b08:	82 30       	cpi	r24, 0x02	; 2
  b0a:	c1 f7       	brne	.-16     	; 0xafc <main+0xf6>
-			{//Show the set temp
+			{   //Show the set temp By Default
 				SEG_voidSEGViewer(&Counter10,GLO_u8EEPROMValue);
  b0c:	84 e6       	ldi	r24, 0x64	; 100
  b0e:	90 e0       	ldi	r25, 0x00	; 0
@@ -2472,18 +2489,18 @@ _delay_loop_2(uint16_t __count)
  b14:	0e 94 3f 04 	call	0x87e	; 0x87e <SEG_voidSEGViewer>
  b18:	80 91 66 00 	lds	r24, 0x0066
  b1c:	d0 cf       	rjmp	.-96     	; 0xabe <main+0xb8>
-	{
 		if(Button_State_On_Off==ON_STATE)
 		{
 			if(ModeFlag==SET_TEMPERATURE_MODE)
 			{
+				//blinks the seven segments
 				SEG_voidSEGBlinker(SEGFlag,&Counter10,GLO_u8EEPROMValue);
  b1e:	80 2f       	mov	r24, r16
  b20:	64 e6       	ldi	r22, 0x64	; 100
  b22:	70 e0       	ldi	r23, 0x00	; 0
  b24:	40 91 6a 00 	lds	r20, 0x006A
  b28:	0e 94 5b 04 	call	0x8b6	; 0x8b6 <SEG_voidSEGBlinker>
-				if (Counter100 == 100)// 0.1 SEC
+				if (Counter100 == 100)// 100 millisecond time
  b2c:	80 91 65 00 	lds	r24, 0x0065
  b30:	84 36       	cpi	r24, 0x64	; 100
  b32:	09 f4       	brne	.+2      	; 0xb36 <main+0x130>
@@ -2493,7 +2510,7 @@ _delay_loop_2(uint16_t __count)
 				{
 					/*Nothing*/
 				}
-				if (Counter1000 == 1000)//1 SEC
+				if (Counter1000 == 1000)//in one second time
  b36:	23 e0       	ldi	r18, 0x03	; 3
  b38:	c8 3e       	cpi	r28, 0xE8	; 232
  b3a:	d2 07       	cpc	r29, r18
@@ -2506,16 +2523,18 @@ _delay_loop_2(uint16_t __count)
 				{
 					/*Nothing*/
 				}
-				if (Counter5000 == 5000)// 5 SECS
+				if (Counter5000 == 5000)// in 5 seconds time
  b48:	88 58       	subi	r24, 0x88	; 136
  b4a:	93 41       	sbci	r25, 0x13	; 19
  b4c:	29 f7       	brne	.-54     	; 0xb18 <main+0x112>
 				{
+					//write the user's set temperature on the EEPROM
 					InternalEEPROM_voidWrite_Data(20,GLO_u8EEPROMValue);
  b4e:	84 e1       	ldi	r24, 0x14	; 20
  b50:	90 e0       	ldi	r25, 0x00	; 0
  b52:	60 91 6a 00 	lds	r22, 0x006A
  b56:	0e 94 41 03 	call	0x682	; 0x682 <InternalEEPROM_voidWrite_Data>
+					//Enters the SENSING_TEMPERATURE_MODE
 					ModeFlag=SENSING_TEMPERATURE_MODE;
  b5a:	90 92 60 00 	sts	0x0060, r9
 					Counter5000 = 0;
@@ -2523,17 +2542,17 @@ _delay_loop_2(uint16_t __count)
  b62:	10 92 62 00 	sts	0x0062, r1
  b66:	80 91 66 00 	lds	r24, 0x0066
  b6a:	a9 cf       	rjmp	.-174    	; 0xabe <main+0xb8>
-					/*Nothing*/
 				}
 			}
 			else if (ModeFlag==SENSING_TEMPERATURE_MODE)
 			{
+				//Displays the current water temperature
 				SEG_voidSEGViewer(&Counter10, LOC_16Temperature);
  b6c:	84 e6       	ldi	r24, 0x64	; 100
  b6e:	90 e0       	ldi	r25, 0x00	; 0
  b70:	6a 2d       	mov	r22, r10
  b72:	0e 94 3f 04 	call	0x87e	; 0x87e <SEG_voidSEGViewer>
-				if (Counter100 == 100)
+				if (Counter100 == 100)// in 100 millisecond time
  b76:	80 91 65 00 	lds	r24, 0x0065
  b7a:	84 36       	cpi	r24, 0x64	; 100
  b7c:	09 f4       	brne	.+2      	; 0xb80 <main+0x17a>
@@ -2549,6 +2568,7 @@ _delay_loop_2(uint16_t __count)
  b84:	d8 07       	cpc	r29, r24
  b86:	41 f6       	brne	.-112    	; 0xb18 <main+0x112>
 				{
+					//Get the average of the last 10 reads
 					LOC_u32SensorSumValue /= 10;
  b88:	c7 01       	movw	r24, r14
  b8a:	b6 01       	movw	r22, r12
@@ -2587,11 +2607,11 @@ _delay_loop_2(uint16_t __count)
  bd6:	d0 e0       	ldi	r29, 0x00	; 0
  bd8:	80 91 66 00 	lds	r24, 0x0066
  bdc:	70 cf       	rjmp	.-288    	; 0xabe <main+0xb8>
-				{
 					/*Nothing*/
 				}
-				if (Counter1000 == 1000)//1 SEC
+				if (Counter1000 == 1000)//in one second time
 				{
+					//this flag is used to blink the seven segment every 1 second
 					if (SEGFlag == SEG_ON)
  bde:	00 23       	and	r16, r16
  be0:	99 f4       	brne	.+38     	; 0xc08 <main+0x202>
@@ -2611,10 +2631,10 @@ _delay_loop_2(uint16_t __count)
  bf8:	c0 e0       	ldi	r28, 0x00	; 0
  bfa:	d0 e0       	ldi	r29, 0x00	; 0
  bfc:	a5 cf       	rjmp	.-182    	; 0xb48 <main+0x142>
-			if(ModeFlag==SET_TEMPERATURE_MODE)
 			{
+				//blinks the seven segments
 				SEG_voidSEGBlinker(SEGFlag,&Counter10,GLO_u8EEPROMValue);
-				if (Counter100 == 100)// 0.1 SEC
+				if (Counter100 == 100)// 100 millisecond time
 				{
 					Counter1000+=Counter100;
  bfe:	cc 59       	subi	r28, 0x9C	; 156
@@ -2622,7 +2642,7 @@ _delay_loop_2(uint16_t __count)
 					Counter100=0;
  c02:	10 92 65 00 	sts	0x0065, r1
  c06:	97 cf       	rjmp	.-210    	; 0xb36 <main+0x130>
-				{
+					//this flag is used to blink the seven segment every 1 second
 					if (SEGFlag == SEG_ON)
 					{
 						SEGFlag = SEG_OFF;
@@ -2632,15 +2652,17 @@ _delay_loop_2(uint16_t __count)
  c0a:	61 f7       	brne	.-40     	; 0xbe4 <main+0x1de>
  c0c:	00 e0       	ldi	r16, 0x00	; 0
  c0e:	ea cf       	rjmp	.-44     	; 0xbe4 <main+0x1de>
-			else if (ModeFlag==SENSING_TEMPERATURE_MODE)
-			{
+				//Displays the current water temperature
 				SEG_voidSEGViewer(&Counter10, LOC_16Temperature);
-				if (Counter100 == 100)
+				if (Counter100 == 100)// in 100 millisecond time
 				{
+					//read the temperature every 100 millisecond
 					LOC_u16DigitalData=ADC_u16StartConversion(0);
  c10:	80 e0       	ldi	r24, 0x00	; 0
  c12:	0e 94 51 00 	call	0xa2	; 0xa2 <ADC_u16StartConversion>
+					//get the analog value
 					LOC_u16AnalogData = (LOC_u16DigitalData * 5000UL) / 1024;
+					//store the reads in LOC_u32SensorSumValue
 					LOC_u32SensorSumValue += LOC_u16AnalogData;
  c16:	a0 e0       	ldi	r26, 0x00	; 0
  c18:	b0 e0       	ldi	r27, 0x00	; 0
